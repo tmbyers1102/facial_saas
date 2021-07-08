@@ -1,5 +1,4 @@
 // import { createMedia } from 'react'
-import PropTypes from 'prop-types'
 import React from 'react'
 import {
   Button,
@@ -11,85 +10,37 @@ import {
   List,
   Segment,
 } from 'semantic-ui-react'
-import DesktopContainer from './Layout/DesktopContainer';
-import MobileContainer from './Layout/MobileContainer';
-
-// *** This i think he deletes but not sure *** 
-// const { MediaContextProvider, Media } = createMedia({
-//   breakpoints: {
-//     mobile: 0,
-//     tablet: 768,
-//     computer: 1024,
-//   },
-// })
-
-// const getWidth = () => {
-//     const isSSR = typeof window === "undefined";
-//     return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
-// };
-
-
-const ResponsiveContainer = ({ children }) => (
-  <div>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
-  </div>
-)
-
-ResponsiveContainer.propTypes = {
-  children: PropTypes.node,
-}
+import { Link } from "react-router-dom";
+import AI from '../assets/images/ai.svg'
 
 const HomepageLayout = () => (
-  <ResponsiveContainer>
+  <React.Fragment>
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Companies and Companions
+              Facial Recognition API
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              We can give your company superpowers to do things that they never thought possible.
-              Let us delight your customers and empower your needs... through pure data analytics.
-            </p>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              We Make Bananas That Can Dance
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
+              Try out our cheap and fast facial recognition API. No credit card required!
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src='/images/wireframe/white-image.png' />
+            <Image
+              rounded
+              size='medium'
+              src={AI}
+            />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button size='huge'>Check Them Out</Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-
-    <Segment style={{ padding: '0em' }} vertical>
-      <Grid celled='internally' columns='equal' stackable>
-        <Grid.Row textAlign='center'>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              "What a Company"
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              "I shouldn't have gone with their competitor."
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              <Image avatar src='/images/avatar/large/nan.jpg' />
-              <b>Nan</b> Chief Fun Officer Acme Toys
-            </p>
+            <Link to="/login">
+              <Button primary size='huge'>
+                Get Started
+              </Button>
+            </Link>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -98,36 +49,28 @@ const HomepageLayout = () => (
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Container text>
         <Header as='h3' style={{ fontSize: '2em' }}>
-          Breaking The Grid, Grabs Your Attention
+          Try our API
         </Header>
         <p style={{ fontSize: '1.33em' }}>
-          Instead of focusing on content creation and hard work, we have learned how to master the
-          art of doing nothing by providing massive amounts of whitespace and generic content that
-          can seem massive, monolithic and worth your attention.
+          Test our API for free for the next two weeks. No credit card required.
         </p>
-        <Button as='a' size='large'>
-          Read More
-        </Button>
-
-        <Divider
-          as='h4'
-          className='header'
-          horizontal
-          style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-        >
-        </Divider>
+        <Link to="/login">
+          <Button positive size='large'>
+            Start my free trial
+          </Button>
+        </Link>
 
         <Header as='h3' style={{ fontSize: '2em' }}>
-          Did We Tell You About Our Bananas?
+          Pricing
         </Header>
         <p style={{ fontSize: '1.33em' }}>
-          Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but
-          it's really true. It took years of gene splicing and combinatory DNA research, but our
-          bananas can really dance.
+          Pay for what you use, at $0.05 per request.
         </p>
-        <Button as='a' size='large'>
-          I'm Still Quite Interested
-        </Button>
+        <Link to="/login">
+          <Button primary size='large'>
+            Start Now
+          </Button>
+        </Link>
       </Container>
     </Segment>
 
@@ -138,34 +81,31 @@ const HomepageLayout = () => (
             <Grid.Column width={3}>
               <Header inverted as='h4' content='About' />
               <List link inverted>
-                <List.Item as='a'>Sitemap</List.Item>
-                <List.Item as='a'>Contact Us</List.Item>
-                <List.Item as='a'>Religious Ceremonies</List.Item>
-                <List.Item as='a'>Gazebo Plans</List.Item>
+                <List.Item>Sitemap</List.Item>
+                <List.Item>Contact Us</List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
               <Header inverted as='h4' content='Services' />
               <List link inverted>
-                <List.Item as='a'>Banana Pre-Order</List.Item>
-                <List.Item as='a'>DNA FAQ</List.Item>
-                <List.Item as='a'>How To Access</List.Item>
-                <List.Item as='a'>Favorite X-Men</List.Item>
+                <List.Item>FAQ</List.Item>
+                <List.Item>Pricing</List.Item>
+                <List.Item>API</List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
               <Header as='h4' inverted>
-                Footer Header
+                Facial Recognition SAAS
               </Header>
               <p>
-                Extra space for a call to action inside the footer that could help re-engage users.
+                Find faces in your images.
               </p>
             </Grid.Column>
           </Grid.Row>
         </Grid>
       </Container>
     </Segment>
-  </ResponsiveContainer>
+  </React.Fragment>
 )
 
 export default HomepageLayout

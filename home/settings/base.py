@@ -1,6 +1,7 @@
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
 DEBUG = True
 ALLOWED_HOSTS = []
@@ -22,6 +23,8 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'rest_framework',
     'rest_framework.authtoken',
+
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -73,8 +76,28 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.ScopedRateThrottle',
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'demo': '3/day',
+        'anon': '24/day',
+        'user': '1000/day'
+    }
 }
 
+CSRF_COOKIE_NAME = "csrftoken"
+
+
+AUTH_USER_MODEL = 'core.User'
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+STRIPE_PUBLISH_KEY = 'pk_live_51Ij3TrBZGm721ul7VP8hY9FjLIu4m09hWduomJrksrYpbmfKFLRJX5OcmW6Td4g7JBOe8utJZVbG7HjRA2deSu0j00MyUW9RyP'
+STRIPE_SECRET_KEY = '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'
+
+STRIPE_PLAN_ID = 'prod_Jif30XAfn2GWsV'
+# STRIPE_PLAN_ID = 'price_1J5Dj7BZGm721ul7sQ3HODmx'
