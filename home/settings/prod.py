@@ -24,7 +24,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 STRIPE_PUBLISH_KEY = 'pk_test_51Ij3TrBZGm721ul74gHGW55HeLcSxZYuRLH3SbZp7OyXC0yvnwoXCGQrI6Z3ZtcWcVgWjUabicQfPc5qMMBUypXm006Z7wNu4x'
