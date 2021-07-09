@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.urls import path
 from .views import (
     FileUploadView,
@@ -14,6 +15,7 @@ from .views import (
 app_name = 'core'
 
 urlpatterns = [
+    path('admin/', admin.site.urls, name="admin"),
     path('demo/', FileUploadView.as_view(), name='file-upload-demo'),
     path('email/', UserEmailView.as_view(), name='email'),
     path('change-email/', ChangeEmailView.as_view(), name='change-email'),
