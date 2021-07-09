@@ -3,7 +3,7 @@ let host = 'http://127.0.0.1:8000';
 // enter test publish key
 let stripePublishKey = "pk_test_51Ij3TrBZGm721ul74gHGW55HeLcSxZYuRLH3SbZp7OyXC0yvnwoXCGQrI6Z3ZtcWcVgWjUabicQfPc5qMMBUypXm006Z7wNu4x"; 
 if (DEBUG === false) {
-  host = 'http://192.81.211.78/';
+  host = 'http://192.81.211.78';
   // enter LIVE publish key
   stripePublishKey = "pk_test_51Ij3TrBZGm721ul74gHGW55HeLcSxZYuRLH3SbZp7OyXC0yvnwoXCGQrI6Z3ZtcWcVgWjUabicQfPc5qMMBUypXm006Z7wNu4x";
 }
